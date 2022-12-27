@@ -10,7 +10,7 @@ const Content = () => {
         },
         {
             id: 2,
-            checked: false,
+            checked: true,
             item: "Coca Cola"
         },
         {
