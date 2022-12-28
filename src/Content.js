@@ -22,7 +22,13 @@ const Content = () => {
 
 
     const handleCheck = (id) => {
-        const listItems = items.map((item) => item.id == id ? { ...item, checked: !item.checked} : item);
+        const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked} : item);
+        setItems(listItems);
+        localStorage.setItem("shoppinglist", JSON.stringify(listItems));
+    }
+
+    const handleDelete = (id) => {
+        const listItems = items.filter((item) => item.id !== id);
         setItems(listItems);
         localStorage.setItem("shoppinglist", JSON.stringify(listItems));
     }
@@ -40,7 +46,7 @@ const Content = () => {
                     <label
                         style={(item.checked) ? {textDecoration: "line-through"} : null}
                     >{item.item}</label>
-                    <FaTrashAlt role="button" tabIndex="0"/>
+                    <FaTrashAlt role="button" tabIndex="0" onClick={() => handleDelete(item.id)}/>
                 </li>
             ))}
        </ul>
