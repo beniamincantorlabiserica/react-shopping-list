@@ -54,7 +54,7 @@ const handleSubmit = (e) => {
             setSearch={setSearch}
           />
           <Content 
-            items={items}
+            items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))}
             handleCheck={handleCheck}
             handleDelete={handleDelete}
           />
